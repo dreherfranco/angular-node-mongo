@@ -1,0 +1,42 @@
+ul{
+    margin-top: 30px;
+}
+.projects{
+    font-family: titilium;
+    width: 30%;
+    display: block;
+    float: left;
+    text-decoration: none;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+.title-projects{
+    display: block;
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.projects a{
+    text-decoration: none;
+    color: black;
+}
+.img-projects{
+    height: 250px;
+    overflow: hidden;
+}
+.projects img{
+    width: 100%;
+}
+.projects .category{
+    font-family: "yanone";
+    font-size: 25px;
+    color: #847676;
+}
+.projects .langs{
+    font-size: 20px;
+    color: #847676;
+}
+.projects div{
+    padding: 5px;
+}
