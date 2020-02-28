@@ -1,17 +1,30 @@
+<div *ngIf="author" id="contact">
+<h2>Contacto</h2>
+<hr><br>
 <p>
-    <strong>Elige primero los subtitulos de las imagenes</strong>
-    Subtitulos: <button (click)="subtitle()">Si</button> <button (click)="noSubtitle()">No</button>
+    <strong>Elige primero los subtitulos de las imagenes</strong><br>
+    <br>Subtitulos:<br> <button (click)="subtitle()" class="ok">Si</button> <button (click)="noSubtitle()" class="negative">No</button>
 </p>
+<br>
+<strong *ngIf="widthToSlider == false" >
+    Inserta un numero para asignar un ancho al slider
+</strong>
 <input type="number" [(ngModel)]="width"/>
 <button (click)="charge()">Cargar Slider</button>
 <button (click)="restart()">Reiniciar Slider</button>
 <p *ngIf="widthToSlider">
     Anchura de Slider: {{widthToSlider}}
 </p>
-<p *ngIf="widthToSlider == false">
-    Inserta un numero para asignar un ancho al slider
-</p>
+
 <br>
+<!--Slider-->
 <div *ngIf="widthToSlider">
-    <slider [widthSlider]="widthToSlider" [subtitulos]="captions"></slider>
+    <slider [widthSlider]="widthToSlider" [subtitulos]="captions" (getAuthor)="eventAuthor($event)"></slider>
+<strong class="data">
+    <p> Autor: {{ author.name }}</p>
+    <p> Telefono: {{ author.phone }}</p>
+    <p> Github: {{ author.github }}</p>
+</strong>
+</div>
+
 </div>
