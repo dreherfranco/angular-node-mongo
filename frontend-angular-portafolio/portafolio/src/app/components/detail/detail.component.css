@@ -1,0 +1,47 @@
+#details{
+    width: 60%;
+    margin: 0px auto;
+}
+#details h3{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: 29px;
+}
+img{
+    clear: both;
+    width: 100%;
+    height: 400px;
+}
+img:hover{
+    cursor: pointer;
+}
+.category{
+    font-family: "yanone";
+    font-size: 25px;
+    color: #847676;
+}
+.langs{
+    font-size: 20px;
+    color: #847676;
+}
+.update{
+    margin-top: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+    margin-left: 80px;
+}
+.delete{
+    background-color: #f00000;
+    border-color: #f00000;
+    width: 70%;
+    margin-left: 80px;
+    margin-bottom: 15px;
+}
+.alert{
+    text-align: center;
+    background: #ffff1a;
+    width: 60%;
+    margin: 0px auto;
+    padding: 10px;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
+import { Global } from '../../services/global';
 
 @Component({
   selector: 'app-detail',
@@ -11,6 +12,8 @@ import { Project } from '../../models/project';
 })
 export class DetailComponent implements OnInit {
   public project: Project;
+  public url: String;
+  public confirm: boolean;
 
   constructor(
               private _router: Router, 
@@ -18,6 +21,8 @@ export class DetailComponent implements OnInit {
               private _route: ActivatedRoute
             ) {
               this.project = new Project('', '', '', '', 2020, '');
+              this.url = Global.url;
+              this.confirm = false;
              }
 
   ngOnInit() {
@@ -45,5 +50,20 @@ export class DetailComponent implements OnInit {
         console.log(<any>error);
       }
     );
+  }
+
+  deleteProject(id){
+    this._projectService.delete(id).subscribe(
+      response => {
+        return this._router.navigate(['/sobre-mi']);
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
+  confirmDelete(confirm){
+    this.confirm = confirm;
   }
 }

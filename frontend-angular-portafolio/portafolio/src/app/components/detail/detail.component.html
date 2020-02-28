@@ -1,1 +1,29 @@
-<p>{{project.name}}</p>
+<div id="details" *ngIf="project">
+    <h3>
+        <strong class="title-projects"> {{ project.name }} </strong>
+    </h3>
+    <a href="{{ url +'image/'+ project.image }}">
+        <img src="{{ url +'image/'+ project.image }}" *ngIf="project.image" />
+    </a>
+    <div>
+        <p>
+        <span class="category">{{ project.category }}</span>
+    </p>
+    <p>
+        <span class="langs">{{ project.langs }}</span>
+    </p>
+    <p>
+        {{ project.description }}
+    </p>
+    <br>
+    <div *ngIf="confirm == false">
+        <button class="update" [routerLink]="['/actualizar', project._id]">Actualizar</button>
+        <button class="delete" (click)="confirmDelete(true)">Borrar</button>
+    </div>
+    <div *ngIf="confirm">
+        <p class="alert">¿Estas seguro de que quieres borrar este proyecto?</p>
+        <button class="update" (click)="confirmDelete(false)">Cancelar</button>
+        <button class="delete" (click)="deleteProject(project._id)">Eliminar proyecto</button>
+    </div>
+    </div>
+</div>

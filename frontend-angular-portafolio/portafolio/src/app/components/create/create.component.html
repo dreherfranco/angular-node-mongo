@@ -1,4 +1,4 @@
-<div id="container">
+<div id="container" *ngIf="project">
     <h2>{{ title }}</h2>
     <hr><br>
     <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
@@ -27,12 +27,15 @@
             <input type="number" name="year" #year="ngModel" [(ngModel)]="project.year" required/> 
             <span *ngIf="year.touched && !year.valid">Ingrese un año que sea valido</span>
         </div>
-        <div>
+        <div *ngIf="project.image">
+            <img src="{{ url +'image/'+ project.image }}" *ngIf="project.image" />
             <label for="image">Imagen:</label>
             <input type="file" name="image" (change)="fileChangeEvent($event)"/>
         </div>
-        <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid" />
+        <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid" class="submit" />
     </form> 
     <p *ngIf="status == 'success'" class="success">El proyecto se ha creado correctamente</p>
     <p *ngIf="status == 'failed'" class="error">Error al crear el proyecto</p>
+    <p *ngIf="status == 'success-update'" class="success">El proyecto se ha actualizado correctamente</p>
+    <br>
 </div>

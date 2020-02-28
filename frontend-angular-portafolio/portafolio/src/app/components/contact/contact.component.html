@@ -1,1 +1,17 @@
-<p>contact works!</p>
+<p>
+    <strong>Elige primero los subtitulos de las imagenes</strong>
+    Subtitulos: <button (click)="subtitle()">Si</button> <button (click)="noSubtitle()">No</button>
+</p>
+<input type="number" [(ngModel)]="width"/>
+<button (click)="charge()">Cargar Slider</button>
+<button (click)="restart()">Reiniciar Slider</button>
+<p *ngIf="widthToSlider">
+    Anchura de Slider: {{widthToSlider}}
+</p>
+<p *ngIf="widthToSlider == false">
+    Inserta un numero para asignar un ancho al slider
+</p>
+<br>
+<div *ngIf="widthToSlider">
+    <slider [widthSlider]="widthToSlider" [subtitulos]="captions"></slider>
+</div>
